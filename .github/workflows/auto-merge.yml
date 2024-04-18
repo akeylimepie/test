@@ -1,9 +1,5 @@
 name: Auto-merge
-on: pull_request
-
-permissions:
-  pull-requests: write
-  contents: write
+on: pull_request_target
 
 jobs:
   automerge:
