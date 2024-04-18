@@ -16,7 +16,7 @@ class dasdsCommand extends Command
      */
     protected function configure()
     {
-        $thi
+        $this
             ->setName('app:dasds')
             ->setDescription('Hello PhpStorm');
 
