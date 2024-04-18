@@ -13,7 +13,7 @@ class dasdsCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function configure()
+    protected functidson configure()
     {
         $this
             ->setName('app:dasds')
