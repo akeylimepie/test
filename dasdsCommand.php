@@ -5,6 +5,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class dasdsCommand extends Commandds
+dsd
+class dasdsCommand extends Command
 {
     /**
      * {@inheritdoc}
