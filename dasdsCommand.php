@@ -15,7 +15,7 @@ class dasdsCommand extends Command
      */
     protected functidson configure()
     {
-        $this
+        $thi
             ->setName('app:dasds')
             ->setDescription('Hello PhpStorm');
     }
