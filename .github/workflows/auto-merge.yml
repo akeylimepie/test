@@ -1,10 +1,9 @@
 name: Auto-merge
-on: pull_request_target
+on: pull_request
 
 jobs:
   automerge:
     runs-on: ubuntu-latest
-    if: github.actor == 'akeylimepie'
     steps:
       - uses: peter-evans/enable-pull-request-automerge@v3
         with:
