@@ -4,8 +4,6 @@ on:
   workflow_dispatch:
   push:
 
-
-#run-name: ${{ github.ref_name}}
 jobs:
   make:
     name: Build and deploy
