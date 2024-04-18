@@ -1,14 +1,16 @@
-on:
-  pull_request:
+name: Auto-merge Dependabot
+on: pull_request
 
-name: Auto-merge
+permissions:
+  pull-requests: write
+  contents: write
+
 jobs:
-  auto-merge:
+  automerge:
     runs-on: ubuntu-latest
+#    if: github.actor == 'dependabot[bot]'
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Enable Pull Request Automerge
-        run: gh pr merge --merge --auto "1"
-        env:
-          GH_TOKEN: ${{ secrets.PAT }}
+      - uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          pull-request-number: ${{ github.event.pull_request.number }}
+          merge-method: merge
