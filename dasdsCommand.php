@@ -14,7 +14,7 @@ class dasdsCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected functidson configure()
+    protected function configure()
     {
         $thi
             ->setName('app:dasds')
