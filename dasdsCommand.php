@@ -5,7 +5,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class dasdsCommand extends Commandds
-dsddsass
+dsddsasss
 class dasdsCommand extends Command
 {
     /**
@@ -18,8 +18,9 @@ class dasdsCommand extends Command
             ->setDescription('Hello PhpStorm');
 
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        return Command::SUCCESS;
+        protected
+        function execute(InputInterface $input, OutputInterface $output): int
+        {
+            return Command::SUCCESS;
+        }
     }
-}
