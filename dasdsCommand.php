@@ -18,8 +18,9 @@ class dasdsCommand extends Command
             ->setDescription('Hello PhpStorm');
 
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        return Command::SUCCESS;
+        protected
+        function execute(InputInterface $input, OutputInterface $output): int
+        {
+            return Command::SUCCESS;
+        }
     }
-}
