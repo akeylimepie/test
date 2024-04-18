@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-namespace;ds
+namespace;
+
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,9 +14,9 @@ class dasdsCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected functidson configure()
+    protected function configure()
     {
-        $thi
+        $this
             ->setName('app:dasds')
             ->setDescription('Hello PhpStorm');
 
