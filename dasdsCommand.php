@@ -6,7 +6,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class dasdsCommand extends Commandds
 dsddsa
-class dasdsCommand extends Command
+class dasdsCommand extends Commandss
 {
     /**
      * {@inheritdoc}
