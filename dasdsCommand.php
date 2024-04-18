@@ -18,7 +18,7 @@ class dasdsCommand extends Command
         $thi
             ->setName('app:dasds')
             ->setDescription('Hello PhpStorm');
-    }
+
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
