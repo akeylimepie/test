@@ -7,5 +7,5 @@ jobs:
     steps:
       - name: Enable Pull Request Automerge
         run: gh pr merge --merge --auto "1"
-#        env:
-#          GH_TOKEN: ${{ secrets.PAT }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
