@@ -5,7 +5,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class dasdsCommand extends Commandds
-dsddsas
+dsddsass
 class dasdsCommand extends Command
 {
     /**
