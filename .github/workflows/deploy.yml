@@ -1,34 +1,17 @@
 name: Deploy
 
 on:
-    workflow_dispatch:
-    push:
-        branches: [ main ]
+  workflow_dispatch:
+  push:
+    branches: [ main ]
 
 run-name: ${{ github.ref_name}}
 jobs:
-    make:
-        name: Build and deploy
-        runs-on: ubuntu-latest
-        steps:
-            -   uses: actions/checkout@v4
-
-            -   name: Changes
-                id: changes
-                if: always()
-                uses: simbo/changes-between-tags-action@v1.0.0
-                with:
-                    tag-pattern: '^v.*$'
-                    include-hashes: false
-
-            -   name: Notify
-                if: always()
-                uses: akeylimepie/telegram-action@v0.1.2
-                with:
-                    token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-                    chat_id: ${{ secrets.TELEGRAM_CHANNEL }}
-                    message_thread_id: ${{ secrets.TELEGRAM_TOPIC_RELEASES }}
-                    parse_mode: html
-                    text: |
-                        ${{ env.DEPLOY_STATUS }} <b>API Layer <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">${{ steps.changes.outputs.tag}}</a></b>
-                        ${{ steps.changes.outputs.changes }}
+  make:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
