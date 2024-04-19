@@ -8,8 +8,11 @@ on:
 jobs:
   deploy:
     uses: ./.github/workflows/deploy.yml
+    secrets: inherit
 
   notify:
+    needs:
+      - deploy
     if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
