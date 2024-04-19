@@ -23,4 +23,6 @@ jobs:
         run: |
           echo "${{ steps.deploy.outcome }}"
           
+          ls -la
+          
           echo "${{ steps.changes.outputs.changes }}"
