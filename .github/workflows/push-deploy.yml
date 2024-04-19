@@ -1,0 +1,20 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/deploy.yml
+
+  notify:
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: changes
+        uses: akeylimepie/changes-action@main
+
+      - name: Notify
+        run: echo "${{ steps.changes.outputs.changes }}"
