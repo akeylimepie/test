@@ -20,4 +20,7 @@ jobs:
         uses: akeylimepie/changes-action@main
 
       - name: Notify
-        run: echo "${{ steps.changes.outputs.changes }}"
+        run: |
+          echo "${{ steps.deploy.outcome }}"
+          
+          echo "${{ steps.changes.outputs.changes }}"
