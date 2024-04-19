@@ -23,9 +23,7 @@ jobs:
         env:
           FOO: ${{ toJson(needs) }}
         run: |
-          echo "${{ needs.deploy.status }}"
-          
-          echo "$FOO"
+          echo "${{ needs.deploy.result }}"
           
           ls -la
           
