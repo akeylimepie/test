@@ -20,8 +20,12 @@ jobs:
         uses: akeylimepie/changes-action@main
 
       - name: Notify
+        env:
+          FOO: ${{ needs }}
         run: |
           echo "${{ needs.deploy.status }}"
+          
+          echo "$FOO"
           
           ls -la
           
