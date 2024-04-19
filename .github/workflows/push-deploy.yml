@@ -21,8 +21,8 @@ jobs:
 
       - name: Notify
         run: |
-          echo "${{ steps.deploy.outcome }}"
+          echo "${{ jobs.deploy.status }}"
           
           ls -la
           
-          echo "${{ steps.changes.outputs.changes }}"
+          echo "${{ steps.changes.outputs.text }}"
