@@ -21,7 +21,7 @@ jobs:
 
       - name: Notify
         env:
-          FOO: ${{ needs }}
+          FOO: ${{ toJson(needs) }}
         run: |
           echo "${{ needs.deploy.status }}"
           
