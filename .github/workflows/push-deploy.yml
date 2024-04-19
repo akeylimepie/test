@@ -20,12 +20,8 @@ jobs:
         uses: akeylimepie/changes-action@main
 
       - name: Notify
-        env:
-          FOO: ${{ toJson(needs) }}
         run: |
-          echo "${{ needs.deploy.status }}"
-          
-          echo "$FOO"
+          echo "${{ needs.deploy.result }}"
           
           ls -la
           
