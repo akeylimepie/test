@@ -2,8 +2,9 @@ name: Deploy
 
 on:
   workflow_call:
-    status_icon:
-      value: ${{ jobs.make.outputs.status_icon }}
+    outputs:
+      status_icon:
+        value: ${{ jobs.make.outputs.status_icon }}
 
 jobs:
   make:
