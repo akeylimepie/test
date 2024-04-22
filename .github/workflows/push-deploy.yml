@@ -19,9 +19,17 @@ jobs:
       - id: changes
         uses: akeylimepie/changes-action@main
 
+      - id: status
+        run: |
+          if [[ ${{ needs.deploy.result }} == "success" ]]; then
+              echo "icon=" >> $GITHUB_OUTPUT
+          else
+              echo "icon=❌" >> $GITHUB_OUTPUT
+          fi
+
       - name: Notify
         run: |
-          echo "${{ needs.deploy.result }}"
+          echo "${{ steps.status.outputs.icon }} ${{ needs.deploy.result }}"
           
           ls -la
           
