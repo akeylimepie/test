@@ -28,9 +28,8 @@ jobs:
           fi
 
       - name: Notify
+        env:
+          DEPLOY_ICON: ${{ steps.status.outputs.icon }}
+          DEPLOY_CHANGES: ${{ steps.changes.outputs.changes }}
         run: |
-          echo "${{ steps.status.outputs.icon }} ${{ needs.deploy.result }}"
-          
-          ls -la
-          
-          echo "${{ steps.changes.outputs.text }}"
+          echo "$DEPLOY_ICON $DEPLOY_CHANGES"
