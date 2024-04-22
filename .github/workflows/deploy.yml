@@ -8,9 +8,19 @@ jobs:
     name: Build and deploy
     runs-on: ubuntu-latest
     steps:
-      - env:
+      - id: deploy
+        env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
 
           dsa
+
+      - name: Status
+        if: always()
+        run: |
+          if [[ ${{ steps.deploy.outcome }} == "success" ]]; then
+              echo "status_icon=" >> $GITHUB_OUTPUT
+          else
+              echo "status_icon=❌" >> $GITHUB_OUTPUT
+          fi
