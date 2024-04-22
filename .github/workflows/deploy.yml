@@ -2,11 +2,15 @@ name: Deploy
 
 on:
   workflow_call:
+    status_icon:
+      value: ${{ jobs.make.outputs.status_icon }}
 
 jobs:
   make:
     name: Build and deploy
     runs-on: ubuntu-latest
+    outputs:
+      status_icon: ${{ steps.status.outputs.icon }}
     steps:
       - id: deploy
         env:
@@ -17,10 +21,11 @@ jobs:
           dsa
 
       - name: Status
+        id: status
         if: always()
         run: |
           if [[ ${{ steps.deploy.outcome }} == "success" ]]; then
-              echo "status_icon=" >> $GITHUB_OUTPUT
+              echo "icon=" >> $GITHUB_OUTPUT
           else
-              echo "status_icon=❌" >> $GITHUB_OUTPUT
+              echo "icon=❌" >> $GITHUB_OUTPUT
           fi
