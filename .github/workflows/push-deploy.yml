@@ -19,7 +19,8 @@ jobs:
       - id: changes
         uses: akeylimepie/changes-action@main
 
-      - id: status
+      - name: Status
+        id: status
         run: |
           if [[ ${{ needs.deploy.result }} == "success" ]]; then
               echo "icon=" >> $GITHUB_OUTPUT
@@ -30,6 +31,6 @@ jobs:
       - name: Notify
         env:
           DEPLOY_ICON: ${{ steps.status.outputs.icon }}
-          DEPLOY_CHANGES: ${{ steps.changes.outputs.changes }}
+          DEPLOY_CHANGES: ${{ steps.changes.outputs.text }}
         run: |
           echo "$DEPLOY_ICON $DEPLOY_CHANGES"
